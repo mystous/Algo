@@ -52,8 +52,6 @@ void CheckCouple(int nSelectCouple, int nMatchCase, int nCase, bool bUsedCouple[
 		CheckCouple(i, nMatchCase, nCase + 1, bUsedCoupleCopy);
 		bUsedCoupleCopy[i] = true;
 	}
-	
-	//bUsedCouple[nSelectCouple] = false;
 }
 
 int main()
