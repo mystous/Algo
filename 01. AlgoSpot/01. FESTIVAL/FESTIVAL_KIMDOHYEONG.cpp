@@ -5,39 +5,35 @@ double lowestPrice(int, int);
 int day[1000]={0,};
 int team[1000] = {0,};
 
+
+
 int main(void)
 {
-	FILE* inputStream;
-	FILE* outputStream;
+#ifdef _WIN32
+	freopen("input.txt", "r", stdin);
+#endif //_WIN32
 
-	fopen_s(&inputStream, "input.txt", "r");
-	fopen_s(&outputStream, "output.txt", "w");
 
 	int testCase=0;
-	fscanf_s(inputStream,"%d",&testCase);
+	scanf("%d",&testCase);
 	
 	//printf("testCase %d\n", testCase);
 	for(int i=0 ; i< testCase ; i++)
 	{
 		int Day, Team;
-		fscanf_s(inputStream,"%d %d",&Day, &Team);
+		scanf("%d %d",&Day, &Team);
 		//printf("%d %d\n", Day, Team);	
 
 		for(int j=0; j<Day ; j++)
 		{
-			fscanf_s(inputStream, "%d", &day[j]);
+			scanf("%d", &day[j]);
 		//	printf("%d ", day[j]);
 		}
 		//printf("\n");
 		
 		double lowPrice =lowestPrice(Day, Team);
-		printf("%.10lf\n", lowPrice);
-		fprintf(outputStream,"%.12lf\n", lowPrice);
-		//printf("\n");
+		printf("%.12lf\n", lowPrice);
 	}
-	
-	fclose(inputStream);
-	fclose(outputStream);
 
 	return 0;
 }
